@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mikel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 2.5rem;
+            animation: fadeInHeader 2s ease-out;
+        }
+
+        @keyframes fadeInHeader {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeInGallery 1.5s ease-out;
+        }
+
+        @keyframes fadeInGallery {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            animation: fadeInModal 0.5s ease-out;
+        }
+
+        @keyframes fadeInModal {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.5s ease-out;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #f39c12;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="gallery-container">
+    <div class="gallery-item">
+        <img src="https://i1.sndcdn.com/artworks-yPztzNNVPZ1vQlZW-hxdsOw-t1080x1080.jpg" alt="Image 6" onclick="openModal(this)">
+    </div>
+    <div class="gallery-item">
+        <img src="https://lastfm.freetls.fastly.net/i/u/300x300/62cdd786f290433b9ed25154a9a429d7.jpg" alt="Image 6" onclick="openModal(this)">
+    </div>
+    <div class="gallery-item">
+        <img src="https://i1.sndcdn.com/artworks-yPztzNNVPZ1vQlZW-hxdsOw-t1080x1080.jpg" alt="Image 6" onclick="openModal(this)">
+    </div>
+    <div class="gallery-item">
+        <img src="https://lastfm.freetls.fastly.net/i/u/300x300/62cdd786f290433b9ed25154a9a429d7.jpg" alt="Image 4" onclick="openModal(this)">
+    </div>
+    <div class="gallery-item">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2g6tReTlM2Akp41g0HaeXN?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="gallery-item">
+        <img src="https://lastfm.freetls.fastly.net/i/u/300x300/62cdd786f290433b9ed25154a9a429d7.jpg" alt="Image 6" onclick="openModal(this)">
+    </div>
+    <div class="gallery-item">
+        <img src="https://i1.sndcdn.com/artworks-yPztzNNVPZ1vQlZW-hxdsOw-t1080x1080.jpg" alt="Image 6" onclick="openModal(this)">
+    </div>
+    <div class="gallery-item">
+        <img src="https://lastfm.freetls.fastly.net/i/u/300x300/62cdd786f290433b9ed25154a9a429d7.jpg" alt="Image 6" onclick="openModal(this)">
+    </div>
+    <div class="gallery-item">
+        <img src="https://i1.sndcdn.com/artworks-yPztzNNVPZ1vQlZW-hxdsOw-t1080x1080.jpg" alt="Image 6" onclick="openModal(this)">
+    </div>
+
+
+<!-- Modal -->
+<div class="modal" id="modal">
+    <button class="close-btn" onclick="closeModal()">×</button>
+    <div class="modal-content">
+        <img id="modal-image" src="" alt="Modal Image">
+    </div>
+</div>
+
+<script>
+    function openModal(image) {
+        var modal = document.getElementById('modal');
+        var modalImage = document.getElementById('modal-image');
+        modal.style.display = "flex";
+        modalImage.src = image.src;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById('modal');
+        modal.style.display = "none";
+    }
+
+    // Close the modal when clicking outside the modal content
+    window.onclick = function(event) {
+        var modal = document.getElementById('modal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</body>
+</html>
